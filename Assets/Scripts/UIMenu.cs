@@ -13,7 +13,16 @@ public class UIMenu : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        
+        if (OVRInput.GetDown(OVRInput.Button.Two))
+        {
+            if (canvas.gameObject.activeSelf == false)
+            {
+                canvas.gameObject.SetActive(true);
+            } else {
+                canvas.gameObject.SetActive(false);
+            }
+
+        }
     }
 
     /* Update is called once per frame

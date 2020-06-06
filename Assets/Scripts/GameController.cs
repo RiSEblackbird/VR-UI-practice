@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
         int count = GameObject.FindGameObjectsWithTag ("Enemy").Length;
         scoreLabel.text = count.ToString ();
 
-        if (OVRInput.Get(OVRInput.Button.Four))
+        if (OVRInput.Get(OVRInput.Button.Two))
         {
             // 現在のシーン番号を取得
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -24,6 +24,16 @@ public class GameController : MonoBehaviour
             // 現在のシーンを再読み込みする
             SceneManager.LoadScene(sceneIndex);
         }
+
+        /*if (OVRInput.Get(OVRInput.Button.Two))
+        {
+            // 現在のシーン番号を取得
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            // 現在のシーンを再読み込みする
+            SceneManager.LoadScene(sceneIndex);
+        }
+        */
 
         /* ゲームリセットボタン、最初のキー入力で誤爆する恐れがあるのでＯＦＦ
         if (OVRInput.Get(OVRInput.Button.Three) || Input.GetKey(KeyCode.K))
@@ -41,10 +51,11 @@ public class GameController : MonoBehaviour
         */
 
     }
-    
-    public void OnRetry ()
+
+    /*public void OnRetry ()
     {
         SceneManager.LoadScene(
             SceneManager.GetActiveScene().name);
     }
+    */
 }
