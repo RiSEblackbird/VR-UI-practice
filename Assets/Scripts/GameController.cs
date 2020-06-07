@@ -25,6 +25,15 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(sceneIndex);
         }
 
+        if (OVRInput.Get(OVRInput.Button.One))
+        {
+            // 現在のシーン番号を取得
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            // 現在のシーンを再読み込みする
+            SceneManager.LoadScene(sceneIndex);
+        }
+
         /*if (OVRInput.Get(OVRInput.Button.Two))
         {
             // 現在のシーン番号を取得
