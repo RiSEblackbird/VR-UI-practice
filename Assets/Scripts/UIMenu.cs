@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class UIMenu : MonoBehaviour
 {
-    public Canvas canvas;
+    public Canvas mainCanvas;
+    public Canvas quitCanvas;
+    public GameObject uiHelper;
     //public Button retryButton;
 
     // Start is called before the first frame update
@@ -15,11 +17,33 @@ public class UIMenu : MonoBehaviour
     {
         if (OVRInput.GetDown(OVRInput.Button.Two))
         {
-            if (canvas.gameObject.activeSelf == false)
+            if (quitCanvas.gameObject.activeSelf == false)
             {
-                canvas.gameObject.SetActive(true);
-            } else {
-                canvas.gameObject.SetActive(false);
+                if (mainCanvas.gameObject.activeSelf == false)
+                {
+                    mainCanvas.gameObject.SetActive(true);
+                }
+                else
+                {
+                    mainCanvas.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                quitCanvas.gameObject.SetActive(false);
+            }
+
+        }
+
+        if (OVRInput.GetDown(OVRInput.Button.One))
+        {
+            if (uiHelper.gameObject.activeSelf == false)
+            {
+                uiHelper.gameObject.SetActive(true);
+            }
+            else
+            {
+                uiHelper.gameObject.SetActive(false);
             }
 
         }
@@ -50,5 +74,26 @@ public class UIMenu : MonoBehaviour
         SceneManager.LoadScene(
             SceneManager.GetActiveScene().name);
     }
+
+    public void AskQuit()
+    {
+        mainCanvas.gameObject.SetActive(false);
+        quitCanvas.gameObject.SetActive(true);
+    }
+
+    public void GoQuit()
+    {
+        Application.Quit();
+        mainCanvas.gameObject.SetActive(false);
+        quitCanvas.gameObject.SetActive(true);
+    }
+
+    public void NoQuit()
+    {
+        quitCanvas.gameObject.SetActive(false);
+        mainCanvas.gameObject.SetActive(true);
+        
+    }
+
 
 }
