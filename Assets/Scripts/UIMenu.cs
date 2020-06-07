@@ -50,4 +50,5 @@ public class UIMenu : MonoBehaviour
         SceneManager.LoadScene(
             SceneManager.GetActiveScene().name);
     }
+
 }
