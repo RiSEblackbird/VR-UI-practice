@@ -6,7 +6,8 @@ public class SpawnPoint : MonoBehaviour
 {
     public Vector3 spawnPosition;
     public Quaternion spawnRotation;
-    
+    public GameObject spawnObject;
+
     void Start()
     {
         spawnPosition = transform.position;
