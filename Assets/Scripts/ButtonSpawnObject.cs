@@ -13,11 +13,12 @@ public class ButtonSpawnObject : MonoBehaviour
 
     public void SpawnObject()
     {
-        var spawnPosition = new Vector3(player.transform.position.x, player.transform.position.y + 1.5f, player.transform.position.z);
-        var spawnRotation = Quaternion.Euler(UnityEngine.Random.Range(0, 180), UnityEngine.Random.Range(0, 180), UnityEngine.Random.Range(0, 180));
-        GameObject spawnedObj = Instantiate(obj, spawnPosition, spawnRotation) as GameObject;
-        Destroy(spawnedObj, 60.0f);
-
-        Debug.Log(obj.name);
+        for (int i = 0; i < 9; i++)
+        {
+            var spawnPosition = new Vector3(player.transform.position.x + UnityEngine.Random.Range(-1.0f, 1.0f), player.transform.position.y + UnityEngine.Random.Range(1.5f, 5.0f), player.transform.position.z + UnityEngine.Random.Range(-1.0f, 1.0f));
+            var spawnRotation = Quaternion.Euler(UnityEngine.Random.Range(0, 180), UnityEngine.Random.Range(0, 180), UnityEngine.Random.Range(0, 180));
+            GameObject spawnedObj = Instantiate(obj, spawnPosition, spawnRotation) as GameObject;
+            Destroy(spawnedObj, 30.0f);
+        }
     }
 }
